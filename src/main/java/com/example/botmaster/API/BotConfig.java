@@ -1,33 +1,72 @@
 package com.example.botmaster.API;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Date;
 
 @Getter
 @Setter
 public class BotConfig {
     private String id;
-    private String BotTitle;
     private String authorID;
-    private Date createdDate;
+    private String BotTitle;
+    private String repo;
+    private String schedule;
+
+    public BotConfig(
+            String id,
+            String authorID,
+            String BotTitle,
+            String repo,
+            String schedule){
+        this.id = id;
+        this.authorID = authorID;
+        this.BotTitle = BotTitle;
+        this.repo = repo;
+        this.schedule = schedule;
+    }
+
+    public BotConfig(){
+
+    }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setAuthorID(String authorID) {
+        this.authorID = authorID;
     }
 
     public void setBotTitle(String botTitle) {
         BotTitle = botTitle;
     }
 
-    public void setAuthorID(String authorID) {
-        this.authorID = authorID;
+    public void setRepo(String repo) {
+        this.repo = repo;
     }
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+
+    public void setSchedule(String schedule) {
+        this.schedule = schedule;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getAuthorID() {
+        return authorID;
+    }
+
+    public String getBotTitle() {
+        return BotTitle;
+    }
+
+    public String getRepo() {
+        return repo;
+    }
+
+    public String getSchedule() {
+        return schedule;
     }
 }
