@@ -25,7 +25,7 @@ public class APIResponse {
                 headerMap.get("repo"),
                 headerMap.get("schedule"));
         //TODO : return Message Module
-        return new BotCreator().createBot(botConfig);
+        return BotCreator.createBot(botConfig);
     }
 
     @GetMapping("/API/bot-info/")
@@ -45,12 +45,6 @@ public class APIResponse {
 
     @PostMapping("/API/user/")
     public Object registerNewOwner(HttpServletRequest request) {
-        //TODO
-        return new UserConfig();
-    }
-
-    @PostMapping("/API/user/")
-    public Object deleteOwner(HttpServletRequest request) {
         //TODO
         return new UserConfig();
     }
