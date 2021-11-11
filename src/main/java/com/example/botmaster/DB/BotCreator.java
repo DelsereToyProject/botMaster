@@ -13,11 +13,11 @@ public class BotCreator {
 
     private String driverClassName = "org.mariadb.jdbc.Driver";
 
-    private String jdbcUrl = "jdbc:mariadb://20.114.254.36:3306/AutoMasterDB?useUnicode=true&characterEncoding=utf8";
+    private String jdbcUrl;
 
-    private String userName = "root";
+    private String userName;
 
-    private String password = "apiaccess";
+    private String password;
 
     public Object createBot(BotConfig botConfig) throws SQLException {
         System.out.println(jdbcUrl);
