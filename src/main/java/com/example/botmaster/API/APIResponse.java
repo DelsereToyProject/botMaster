@@ -33,15 +33,6 @@ public class APIResponse {
         return new BotConfig();
     }
 
-    private HashMap<String, String> getHeaderMap(HttpServletRequest request){
-        Enumeration<String> headers = request.getHeaderNames();
-        HashMap<String, String> headerMap = new HashMap<>();
-        while (headers.hasMoreElements()){
-            String key = headers.nextElement();
-            headerMap.put(key, request.getHeader(key));
-        }
-        return headerMap;
-    }
 
     @PostMapping("/API/user/")
     public Object registerNewOwner(HttpServletRequest request) {
@@ -56,7 +47,43 @@ public class APIResponse {
 
     @PostMapping("/API/bot-repo/")
     public Object pushContainer(HttpServletRequest request) {
-        return new RepoConfig();
+
+        //return new RepoConfig();
+        return new UserConfig();
+    }
+
+
+
+
+
+    @PostMapping("/controller/ended-bot/")
+    public Object PostEndSignal(HttpServletRequest request){
+        HashMap<String, String> headerMap = getHeaderMap(request);
+        RepoConfig repoConfig = new RepoConfig(
+                headerMap.get("bot_id"),
+                headerMap.get("bot_owner_id"),
+                headerMap.get("bot_repo"),
+                headerMap.get("repo_config"));
+
+        return new Object();
+    }
+
+
+    @PostMapping("/controller/test-bot/")
+    public Object PostTestSignal(HttpServletRequest request){
+        System.out.println("DualService Test123");
+        return request;
+    }
+
+
+    private HashMap<String, String> getHeaderMap(HttpServletRequest request){
+        Enumeration<String> headers = request.getHeaderNames();
+        HashMap<String, String> headerMap = new HashMap<>();
+        while (headers.hasMoreElements()){
+            String key = headers.nextElement();
+            headerMap.put(key, request.getHeader(key));
+        }
+        return headerMap;
     }
 
 }

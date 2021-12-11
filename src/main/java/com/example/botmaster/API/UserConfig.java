@@ -6,5 +6,4 @@ public class UserConfig {
     private String UserName;
     private String Password;
 
-
 }

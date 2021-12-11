@@ -20,7 +20,6 @@ public class BotCreator {
 
     @Autowired
     public static Object createBot(BotConfig botConfig) throws SQLException {
-        System.out.println("createBot test");
         Connection conn = accessConfig.connectDB();
         PreparedStatement preparedStatement
                 = conn.prepareStatement(

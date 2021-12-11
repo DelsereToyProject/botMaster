@@ -9,7 +9,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-//TODO : need to seperated
 @Repository
 public class AccessConfig {
 
@@ -23,9 +22,6 @@ public class AccessConfig {
     private String password;
 
     public Connection connectDB() throws SQLException {
-
-        System.out.println("connectDB test");
-        System.out.println("dbURL is : " + dbURL);
         Connection connection = DriverManager.getConnection(dbURL, userName, password);
         return connection;
     }
