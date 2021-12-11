@@ -22,7 +22,7 @@ public class WorkScheduler {
         this.accessConfig = accessConfig;
     }
 
-    @Scheduled(cron = "0 * * * * * ")
+    //@Scheduled(cron = "0 * * * * * ")
     public void executeSchedule() throws SQLException {
         //scan program for 1min
         Calendar calendar = Calendar.getInstance();
