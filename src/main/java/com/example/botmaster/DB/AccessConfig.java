@@ -22,11 +22,7 @@ public class AccessConfig {
     private String password;
 
     public Connection connectDB() throws SQLException {
-        Connection connection = DriverManager.getConnection(dbURL, userName, password);
-        return connection;
+        return DriverManager.getConnection(dbURL, userName, password);
     }
 
-    public void disconnectDB(Connection connection) throws SQLException {
-        connection.close();
-    }
 }

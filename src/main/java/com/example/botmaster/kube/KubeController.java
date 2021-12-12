@@ -1,13 +1,13 @@
 package com.example.botmaster.kube;
 
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-@Service
+@Component
 public class KubeController{
 
     public String uploadProcess(String bot_repo) throws IOException {

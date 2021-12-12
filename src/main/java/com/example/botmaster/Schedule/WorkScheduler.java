@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.StringTokenizer;
 
@@ -20,6 +22,11 @@ public class WorkScheduler {
 
     public WorkScheduler(AccessConfig accessConfig){
         this.accessConfig = accessConfig;
+    }
+
+    @Scheduled(cron = "0 * * * * * ")
+    public void tempScheduler(){
+        System.out.println("Scheduled : " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy:MM:dd HH:mm:ss")));
     }
 
     //@Scheduled(cron = "0 * * * * * ")

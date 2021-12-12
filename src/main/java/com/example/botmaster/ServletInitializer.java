@@ -19,5 +19,4 @@ public class ServletInitializer extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(ServletInitializer.class, args);
     }
-
 }

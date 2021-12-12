@@ -25,7 +25,8 @@ public class APIResponse {
                 headerMap.get("repo"),
                 headerMap.get("schedule"));
         //TODO : return Message Module
-        return BotCreator.createBot(botConfig);
+        BotCreator.createBot(botConfig);
+        return "PostNewBot";
     }
 
     @GetMapping("/API/bot-info/")
@@ -52,10 +53,6 @@ public class APIResponse {
         return new UserConfig();
     }
 
-
-
-
-
     @PostMapping("/controller/ended-bot/")
     public Object PostEndSignal(HttpServletRequest request){
         HashMap<String, String> headerMap = getHeaderMap(request);
@@ -72,7 +69,7 @@ public class APIResponse {
     @PostMapping("/controller/test-bot/")
     public Object PostTestSignal(HttpServletRequest request){
         System.out.println("DualService Test123");
-        return request;
+        return "hello !!";
     }
 
 
@@ -85,5 +82,4 @@ public class APIResponse {
         }
         return headerMap;
     }
-
 }

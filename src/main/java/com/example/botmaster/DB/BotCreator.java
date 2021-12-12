@@ -17,7 +17,6 @@ public class BotCreator {
     public BotCreator(AccessConfig accessConfig) {
         this.accessConfig = accessConfig;
     }
-
     @Autowired
     public static Object createBot(BotConfig botConfig) throws SQLException {
         Connection conn = accessConfig.connectDB();
@@ -28,7 +27,6 @@ public class BotCreator {
                         "VALUES (?, ?, ?, ?);"
         );
 
-        System.out.println(botConfig.getAuthorID());
         preparedStatement.setString(1, botConfig.getAuthorID());
         preparedStatement.setString(2, botConfig.getBotTitle());
         preparedStatement.setString(3, botConfig.getRepo());
